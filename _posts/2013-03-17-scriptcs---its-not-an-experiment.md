@@ -33,9 +33,9 @@ As of today, on Github, we have:
 
 * 5 repos within the organization
 * 17 unique [code contributors](https://github.com/scriptcs/scriptcs/wiki/Contributors)
-* 223 stars
-* 53 forks
-* 137 issues
+* 226 stars
+* 54 forks
+* 138 issues
 * 71 pull requests
 
 
@@ -72,7 +72,7 @@ If you wish to contribute a new sample just head over to the repo! We are always
 
 We are publishing our nightly builds to our [MyGet feed](www.myget.org/gallery/scriptcsnightly), which is available at
 
-  http://www.myget.org/F/scriptcsnightly/
+            http://www.myget.org/F/scriptcsnightly/
 
 So you are strongly encouraged to try it out. The initial release is an `alpha` with version `0.3`. This includes:
 
