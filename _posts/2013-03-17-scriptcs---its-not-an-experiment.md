@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "scriptcs   it's not an experiment"
-description: ""
-category: 
-tags: []
+title: "scriptcs"
+category : scriptcs
+tagline: "it's not an experiment"
+tags : [scriptcs, project, status]
 ---
 {% include JB/setup %}
 
