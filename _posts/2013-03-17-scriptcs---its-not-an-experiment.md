@@ -23,7 +23,7 @@ However, before that, it is necessary to emphasize that the response from the co
 
 ## Scriptcs, owned by the community
 
-This project has moved far beyond Glenn's initial experiments. It is now 100% owned by the community. All decisions are made publically and transparently in our Github issues and you are more than welcome and encouraged to particpate!
+This project has moved far beyond Glenn's initial experiments. It is now 100% owned by the community. All decisions are made publicly and transparently in our Github issues and you are more than welcome and encouraged to particpate!
 
 As such, I think it's important to highlight that things have really changed, because some time ago, it would be virtually impossible to have a Microsoft person involved in coordinating such a project.
 
