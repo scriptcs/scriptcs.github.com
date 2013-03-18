@@ -49,8 +49,8 @@ As you can see since the last post we've had an incredible amount of energy. Her
 * [Debugging](https://github.com/scriptcs/scriptcs/wiki/Debugging-C%23-Scripts) in Visual Studio! (contributed by [@dschenkelman](https://twitter.com/dschenkelman))
 * Pluggable script engines (contributed by [@nberardi](https://twitter.com/nberardi))
 * Script Packs, scriptcs extensiblity (contributed by [@gblock](https://twitter.com/gblock))
-* Team city build, nuget(http://nuget.org) packages (contributed by [@jrusbactch](https://twitter.com/jrusbatch))
-* [Chocolatey](http://chocolatey.org/) build (contributd by [@mrockx](https://twitter.com/mwrockx))
+* Team city build, [nuget](http://nuget.org) packages (contributed by [@jrusbactch](https://twitter.com/jrusbatch))
+* [Chocolatey](http://chocolatey.org/) package (contributd by [@mrockx](https://twitter.com/mwrockx))
 * A ton of samples and a dedicated [samples repo](https://github.com/scriptcs/scriptcs-samples) (see more below)
 
 ## Samples
