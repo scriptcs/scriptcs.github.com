@@ -91,7 +91,7 @@ Glenn has also been on dotNetRocks podcast to talk to Carl and Richard about `sc
 
 ## What's next?
 
-There is a ton of exciting stuff ahead! We'll have a separate post about that.
+There is a ton of exciting stuff ahead! And _that_ will be covered in our next post.
 
 ## We want your feedback and your help!
 
