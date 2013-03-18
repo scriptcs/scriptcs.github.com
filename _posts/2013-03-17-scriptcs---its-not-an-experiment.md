@@ -11,13 +11,13 @@ Just a little over two weeks ago scriptcs started with [Glenn's blog post](http:
 
 The response from the community was **extremely** positive!!!
 
-Almost immediately after that scriptcs moved from an experiment to a fully-fledged OSS project. It started from a Skype call which resulted in [Justin Rusbatch](https://twitter.com/jrusbatch) and [Filip W](https://twitter.com/filip_woj) joining as coordinators. 
+Almost immediately after that scriptcs moved from an experiment to a full-fledged OSS project. It started from a Skype call which resulted in [Justin Rusbatch](https://twitter.com/jrusbatch) and [Filip W](https://twitter.com/filip_woj) joining as coordinators. 
 
 Immediately after we created a [Github organization](https://github.com/scriptcs), a [website](http://scriptcs.net), a [twitter account](http://twitter.com/scriptcsnet), a [google group](https://groups.google.com/forum/?fromgroups#!forum/scriptcs) and a [jabbr chat](https://jabbr.net/#/rooms/scriptcs).  
 
 Flash forward two weeks later. To be honest, things have been going forward at such **crazy pace**, that it really does feel like it's been fifty two weeks instead :-) 
 
-Therefore, it is perhaps a good moment to look back at what has been so far.
+Therefore, it is perhaps a good moment to look back at what has happened so far.
 
 However, before that, it is necessary to emphasize that the response from the community has been [absolutely staggering](https://github.com/scriptcs/scriptcs/issues/107), and has vastly exceeded any of our expectations! This is also a great testament to how needed a good, lightweight, C# scripting environment is.
 
@@ -25,7 +25,7 @@ However, before that, it is necessary to emphasize that the response from the co
 
 This project has moved far beyond Glenn's initial experiments. It is now 100% owned by the community. All decisions are made publicly and transparently in our Github issues and you are more than welcome and encouraged to particpate!
 
-As such, I think it's important to highlight that things have really changed, because some time ago, it would be virtually impossible to have a Microsoft person involved in coordinating such a project.
+As such, I think it's important to highlight that things have really changed at Microsoft, because not that long ago, it would have been virtually impossible to have a Microsoft person involved in coordinating such a project.
 
 There has really been a tremendous amount of contribution from the community. GitHub has been literally lit up with notifications and Twitter has been beaming with activity too.
 
@@ -49,7 +49,8 @@ As you can see since the last post we've had an incredible amount of energy. Her
 * [Debugging](https://github.com/scriptcs/scriptcs/wiki/Debugging-C%23-Scripts) in Visual Studio! (contributed by [@dschenkelman](https://twitter.com/dschenkelman))
 * Pluggable script engines (contributed by [@nberardi](https://twitter.com/nberardi))
 * Script Packs, scriptcs extensiblity (contributed by [@gblock](https://twitter.com/gblock))
-* Team city build, nuget packages and chocolatey (contributed by [@jrusbactch](https://twitter.com/jrusbatch))
+* Team city build, nuget(http://nuget.org) packages (contributed by [@jrusbactch](https://twitter.com/jrusbatch))
+* [Chocolatey](http://chocolatey.org/) build (contributd by [@mrockx](https://twitter.com/mwrockx))
 * A ton of samples and a dedicated [samples repo](https://github.com/scriptcs/scriptcs-samples) (see more below)
 
 ## Samples
