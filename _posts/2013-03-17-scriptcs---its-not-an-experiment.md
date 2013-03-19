@@ -77,13 +77,13 @@ We are publishing our nightly builds to our [MyGet feed](www.myget.org/gallery/s
 
 So you are strongly encouraged to try it out. The initial release is an `alpha` with version `0.3`. This includes:
 
-* scriptcs v0.3.0-alpha (Chcolatey package)
+* scriptcs v0.3.0-alpha (Chocolatey package)
 * ScriptCs.Contracts v0.3.0-alpha (Extension point for script packs)
 * ScriptCs.Core  v0.3.0-alpha (Core service)
 * ScriptCs.Engine.Roslyn v0.3.0-alpha (Roslyn-based execution engine)
 
 ## Contributing to it's success, "you take it"
-Scriptcs will only be succesful with the communities help. If you want to jump in and help out, we've put up a [contribution guideline document](https://github.com/scriptcs/scriptcs/blob/master/CONTRIBUTING.md) which has worked out great, both for the project and everyone wishing to contribute. We also introduced a new ["you take it"]([labeling system](https://github.com/scriptcs/scriptcs/issues/79) label for issues that we explicitly WANT you to take!
+Scriptcs will only be succesful with the communities help. If you want to jump in and help out, we've put up a [contribution guideline document](https://github.com/scriptcs/scriptcs/blob/master/CONTRIBUTING.md) which has worked out great, both for the project and everyone wishing to contribute. We also introduced a new '[you take it](https://github.com/scriptcs/scriptcs/issues/79)' label for issues that we explicitly WANT you to take!
 
 We also have a project logo, created by [Salman Quazi](https://twitter.com/splusq), and that has helped us develop an identity of the project.
 
