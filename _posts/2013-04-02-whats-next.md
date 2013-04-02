@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What's Next"
-description: ""
+description: "Improving the C# scripting experience."
 category: scriptcs
 tags: [scriptcs, project, status]
 ---
