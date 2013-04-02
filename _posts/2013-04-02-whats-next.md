@@ -97,10 +97,11 @@ We plan to make sure the API is well-documented, clean, and understandable, as w
 
 ### Octopus Deploy support
 
-<img height="75" width="75" src="https://twimg0-a.akamaihd.net/profile_images/2357521476/Avatar.png" alt="Drawing" style="float:left; margin: 10px 10px 0 0"/> Paul Stovell, the creator of Octopus Deploy has [just announced](http://octopusdeploy.com/blog/octopus-1.5-azure-ftp-scriptcs) that Octopus Deploy 1.5 supports scriptcs! 
+<img height="75" width="75" src="https://twimg0-a.akamaihd.net/profile_images/2357521476/Avatar.png" alt="Drawing" style="float:left; margin:0px 10px 10px 0"/> Paul Stovell, the creator of Octopus Deploy has [just announced](http://octopusdeploy.com/blog/octopus-1.5-azure-ftp-scriptcs) that Octopus Deploy 1.5 supports scriptcs! 
 
 This is absolutely terrific news, and we'd like to thank Paul (who also [contributed](https://github.com/scriptcs/scriptcs/pull/139) to scriptcs source) for being the first to officially embrace our platform! 
 
+<div style="clear:both"></div>
 
 ### Further scriptcs adoption
 
