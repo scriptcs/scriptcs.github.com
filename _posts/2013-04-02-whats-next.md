@@ -7,8 +7,6 @@ tags: [scriptcs, project, status]
 ---
 {% include JB/setup %}
 
-## What's next
-
 As promised in the [previous post](http://blog.scriptcs.net/2013/03/17/scriptcs---its-not-an-experiment) we'd like to share with some plans for the near (and more distant future).
 
 There is definitely a ton of exciting stuff ahead! 
@@ -102,6 +100,7 @@ We plan to make sure the API is well-documented, clean, and understandable, as w
 <img height="75" width="75" src="https://twimg0-a.akamaihd.net/profile_images/2357521476/Avatar.png" alt="Drawing" style="float:left; margin: 10px 10px 0 0"/> Paul Stovell, the creator of Octopus Deploy has [just announced](http://octopusdeploy.com/blog/octopus-1.5-azure-ftp-scriptcs) that Octopus Deploy 1.5 supports scriptcs! 
 
 This is absolutely terrific news, and we'd like to thank Paul (who also [contributed](https://github.com/scriptcs/scriptcs/pull/139) to scriptcs source) for being the first to officially embrace our platform! 
+
 
 ### Further scriptcs adoption
 
