@@ -66,7 +66,7 @@ public double Subtract(double a, double b) {
 ```
 You can see that this script contains basic `Add` and `Subtract` functions. 
 
-It is possible to pull in a traditional Script Pack via the `Require<T>` mechanism. Here we are pulling in the `Logger` Script Pack. Note that you cannot use `var` to declare the variable holding the Script Pack within Script Libraries. You **MUST** use an explictly typed variable. For the background on why, refer to the *Adding a library reference* section of the Script Libraries [Design Document](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries). 
+It is possible to pull in a traditional Script Pack via the `Require<T>` mechanism. Here we are pulling in the `Logger` Script Pack. Note that you cannot use `var` to declare the variable holding the Script Pack within Script Libraries. You **MUST** use an explictly typed variable. For the background on why, refer to the [Adding a library reference](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries#adding-a-library-reference) section of the Script Libraries [Design Document](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries). 
 
 Additional `Multiply` and `Divide` functions are pulled in using the `#load` directive and a `MultiplyAndDivide.csx` script contained in the Script Library. Here is the contents of that script:
 
