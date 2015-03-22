@@ -40,7 +40,7 @@ And running it will result in the following:
 
 Note that we didn't need to use the Script Pack `Require<T>` mechanism to bring the Script Library into our script. If the Script Library has been installed, then all you need to do is `new` it up. Similarly to `Require<T>` it will automatically inject required usings and imports.
 
-You may also have noticed that the `csx` file in the NuGet package had a `Main` suffix. This convention is how we discover the the entry script within your NuGet package, and there must be one present. The fact that the `csx` file was named `CalculatorMain.csx`, allowed us to `new` up the Script Libary via the `var calc = new Calculator();` line in our script. 
+You may also have noticed that the `csx` file in the NuGet package had a `Main` suffix. This convention is how we discover the entry script within your NuGet package, and there must be one present. The fact that the `csx` file was named `CalculatorMain.csx`, allowed us to `new` up the Script Libary via the `var calc = new Calculator();` line in our script. 
 
 Let's dive a little deeper into the details of how you build a Script Library.
  
@@ -68,7 +68,7 @@ You can see that this script contains basic `Add` and `Subtract` functions.
 
 Notice it also pulls in the [scriptcs-logger] (https://github.com/paulbouwer/scriptcs-logger) script pack. It is possible to pull in a traditional Script Pack via the `Require<T>` mechanism. Note that you cannot use `var` to declare the variable holding the Script Pack within Script Libraries. You **MUST** use an explictly typed variable. For the background on why, refer to the [Adding a library reference](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries#adding-a-library-reference) section of the Script Libraries [Design Document](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries). 
 
-Additional `Multiply` and `Divide` functions are pulled in using the `#load` directive and a `MultiplyAndDivide.csx` script contained in the Script Library. This is just for illustration in this case, but it allows you to factor your Script Library so it is a monolithic code file. Here is the contents of that script:
+Additional `Multiply` and `Divide` functions are pulled in using the `#load` directive and a `MultiplyAndDivide.csx` script contained in the Script Library. This is just for illustration in this case, but it allows you to factor your Script Library so it is not a monolithic code file. Here is the contents of that script:
 
 **MultiplyAndDivide.csx**
 ```csharp
@@ -167,7 +167,7 @@ Next run the script. Any parameters after the `--` are made available in `Env.Sc
 
 ![Running demo.csx on Windows](/images/2015-03-07/demo-windows.png)
 
-As mentioned earlier, the `Calculator` class is present because we named the entry point file as CalculatorMain.csx. When scriptcs loads a script library, it will automatically put the contents into a wrapper class matching the entry point. This is also advantageous because it removes member conflicts. Two Script Libraries can have the exact same members, but they will not override one another as they are all scoped to their wrappers.
+As mentioned earlier, the `Calculator` class is present because we named the entry point file as `CalculatorMain.csx`. When scriptcs loads a Script Library, it will automatically put the contents into a wrapper class matching the entry point. This is also advantageous because it removes member conflicts. Two Script Libraries can have the exact same members, but they will not override one another as they are all scoped to their wrappers.
 
 If you look at the `scriptcs_packages` folder you'll notice a `ScriptLibraries.csx` file after you have run the script. 
 
@@ -241,6 +241,6 @@ Ensure that you configure your local NuGet repo folder correctly for a non-Windo
 
 For some deeper insight into design decisions and implementation details have a look at the Script Libraries [Design Document](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries).
 
-With Script Libraries we're taking the scripting experience another notch. You'll now be able to easily share and reuse scripts, all without ever having to create a project :-)
+With Script Libraries we're taking the scripting experience another notch. You’ll now be able to easily share your scripts as NuGet packages, so they can be reused without ever having to create a project or touch Visual Studio :-)
 
 We really hope you enjoy the new Script Library experience and look forward to your feedback!
