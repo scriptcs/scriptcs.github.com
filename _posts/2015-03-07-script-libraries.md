@@ -9,11 +9,11 @@ tags: [changes]
 
 In scriptcs [v0.14](https://github.com/scriptcs/scriptcs/releases/tag/v0.14.0) we have introduced Script Libraries. This feature allows you to author functionality as a set of `csx` files, package them up as a NuGet package and then easily reuse that functionality across your scripts. 
 
-For those of you familiar with [Script Packs](https://github.com/scriptcs/scriptcs/wiki/Script-Packs) this may sound familiar. The biggest downside of Script Packs is that you still need to open up an IDE and deal with projects and interfaces to add your functionality. One of the aims of the scriptcs project is to simplify your `C#` workflow and this is where we believe Script Libraries will shine.
+For those of you familiar with [Script Packs](https://github.com/scriptcs/scriptcs/wiki/Script-Packs) this may sound familiar. The biggest downside of Script Packs is that you still need to open up an IDE and deal with projects and interfaces in order to create them. One of the aims of the scriptcs project is to simplify your `C#` workflow and this is where we believe Script Libraries will shine.
 
 ## Let's see this in action!
 
-Let's assume we have a NuGet package `ScriptCs.Calculator`. It has been installed into the script folder using the standard `scriptcs -install ScriptCs.Calculator` option. The NuGet package contains a `csx` file named `CalculatorMain.csx` that contains the following function:
+Let's assume we have a NuGet package `ScriptCs.Calculator`. It has been installed into the script folder using the standard `scriptcs -install ScriptCs.Calculator` option. The NuGet package contains a `csx` file named `CalculatorMain.csx` living in the `Content\scriptcs` folder that contains the following function:
 
 **CalculatorMain.csx**
 ```csharp
@@ -27,7 +27,7 @@ Creating a script as follows:
 **demo.csx**
 ```csharp
 var calc = new Calculator();
-var result = calc.Add(5,2);
+var result = calc.Add(40,2);
 Console.WriteLine(result);
 ```
 
@@ -35,12 +35,12 @@ And running it will result in the following:
 
 ```
 > scriptcs demo.csx
-7
+42
 ```
 
-Note that we didn't need to use the Script Pack `Require<T>` mechanism to bring the Script Library into our script. If the Script Library has been installed, then all you need to do is `new` it up.
+Note that we didn't need to use the Script Pack `Require<T>` mechanism to bring the Script Library into our script. If the Script Library has been installed, then all you need to do is `new` it up. Similarly to `Require<T>` it will automatically inject required usings and imports.
 
-You may also have noticed that the `csx` file in the NuGet package had a `Main` suffix. This is the discovery mechanism for the entry script within your NuGet package. The fact that the `csx` file was named `CalculatorMain.csx` allowed us to `new` up the Script Libary via the `var calc = new Calculator();` line in our script.
+You may also have noticed that the `csx` file in the NuGet package had a `Main` suffix. This convention is how we discover the the entry script within your NuGet package, and there must be one present. The fact that the `csx` file was named `CalculatorMain.csx`, allowed us to `new` up the Script Libary via the `var calc = new Calculator();` line in our script. 
 
 Let's dive a little deeper into the details of how you build a Script Library.
  
@@ -66,9 +66,9 @@ public double Subtract(double a, double b) {
 ```
 You can see that this script contains basic `Add` and `Subtract` functions. 
 
-It is possible to pull in a traditional Script Pack via the `Require<T>` mechanism. Here we are pulling in the `Logger` Script Pack. Note that you cannot use `var` to declare the variable holding the Script Pack within Script Libraries. You **MUST** use an explictly typed variable. For the background on why, refer to the [Adding a library reference](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries#adding-a-library-reference) section of the Script Libraries [Design Document](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries). 
+Notice it also pulls in the [scriptcs-logger] (https://github.com/paulbouwer/scriptcs-logger) script pack. It is possible to pull in a traditional Script Pack via the `Require<T>` mechanism. Note that you cannot use `var` to declare the variable holding the Script Pack within Script Libraries. You **MUST** use an explictly typed variable. For the background on why, refer to the [Adding a library reference](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries#adding-a-library-reference) section of the Script Libraries [Design Document](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries). 
 
-Additional `Multiply` and `Divide` functions are pulled in using the `#load` directive and a `MultiplyAndDivide.csx` script contained in the Script Library. Here is the contents of that script:
+Additional `Multiply` and `Divide` functions are pulled in using the `#load` directive and a `MultiplyAndDivide.csx` script contained in the Script Library. This is just for illustration in this case, but it allows you to factor your Script Library so it is a monolithic code file. Here is the contents of that script:
 
 **MultiplyAndDivide.csx**
 ```csharp
@@ -83,6 +83,8 @@ public double Divide(double a, double b) {
 }
 ```
 In `scriptcs` you are required to place all directives (`#r`, `#load`, etc) and `using` statements at the top of your script. To ensure that directives and `using` statements within your Script Libary do not cause issues, `scriptcs` will ensure that all of them are parsed, extracted and pre-pended at the top of the generated script output. So there is nothing different you need to do in the `csx` files included in your Script Library. 
+
+Within your script pack you can also contain other classes which the consumer can use. 
 
 The final bit of creating the Script Library is to create the NuGet package. This is done, as with any other NuGet package, via a `nuspec` file. Our NuGet package will be called `ScriptCs.Calculator`.
 
@@ -126,10 +128,9 @@ Create a file called `demo.csx` that will `new` up the `Calculator` Script Libra
 **demo.csx**
 ```csharp	
 var calc = new Calculator();
-var result = calc.Add(5,2);
+var result = calc.Add(40,2);
 Console.WriteLine(result);
 ```
-
 Since the NuGet package we've just created is not published we'll use a `scriptcs_nuget.config` file in our script folder. This allows us to override the system wide NuGet options while running our script. I've placed the `ScriptCs.Calculator.0.1.0.nupkg` NuGet package into the `C:\NuGet` folder on my machine and added the folder as an additional package source in the `scriptcs_nuget.config` file.
 
 **scriptcs_nuget.config**
@@ -166,11 +167,42 @@ Next run the script. Any parameters after the `--` are made available in `Env.Sc
 
 ![Running demo.csx on Windows](/images/2015-03-07/demo-windows.png)
 
-If you look at the `scriptcs_packages` folder you'll notice a `ScriptLibraries.csx` file after you have run the script.
+As mentioned earlier, the `Calculator` class is present because we named the entry point file as CalculatorMain.csx. When scriptcs loads a script library, it will automatically put the contents into a wrapper class matching the entry point. This is also advantageous because it removes member conflicts. Two Script Libraries can have the exact same members, but they will not override one another as they are all scoped to their wrappers.
+
+If you look at the `scriptcs_packages` folder you'll notice a `ScriptLibraries.csx` file after you have run the script. 
 
 ![ScriptLibraries.csx](/images/2015-03-07/ScriptLibraries.csx.png)
 
-The `ScriptLibraries.csx` file is built from the Script Libraries present in the `scriptcs_packages` folder. If this file is present, `scriptcs` will merge this file into the main script file and execute. This cached version of the Script Libraries is used to ensure that subsequent script executions do not pay the penalty for building this file.
+The `ScriptLibraries.csx` file is built from the Script Libraries present in the `scriptcs_packages` folder and contains the wrapped libraries. If this file is present, `scriptcs` will merge this file into the main script file and execute. See the contents below:
+
+```csharp
+public class Calculator : ScriptCs.ScriptLibraryWrapper {
+#line 1 "C:\src\test\scriptcs_packages\ScriptCs.Calculator.0.1.0\Content\scriptcs\MultiplyAndDivide.csx"
+public double Multiply(double a, double b) {
+  logger.Info(String.Format("Multiplying {0} * {1}", a, b));
+  return a*b;
+}
+
+public double Divide(double a, double b) {
+  logger.Info(String.Format("Dividing {0} / {1}", a, b));
+  return a/b;
+}
+ 
+#line 3 "C:\src\test\scriptcs_packages\ScriptCs.Calculator.0.1.0\Content\scriptcs\CalculatorMain.csx"
+private Logger logger = Require<Logger>();
+ 
+public double Add(double a, double b) {
+  logger.Info(String.Format("Adding {0} + {1}", a, b));
+  return a+b;
+}
+ 
+public double Subtract(double a, double b) {
+  logger.Info(String.Format("Subtracting {0} - {1}", a, b));
+  return a-b;
+}
+}
+```
+This cached version of the Script Libraries is used to ensure that subsequent script executions do not pay the penalty for building this file.
 
 If the `scriptcs -install` option is invoked to install any new NuGet packages this file will be deleted and automatically rebuilt on the next script execution.  
 
@@ -209,4 +241,6 @@ Ensure that you configure your local NuGet repo folder correctly for a non-Windo
 
 For some deeper insight into design decisions and implementation details have a look at the Script Libraries [Design Document](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries).
 
-We really hope you enjoy the new Script Library experience. 
+With Script Libraries we're taking the scripting experience another notch. You'll now be able to easily share and reuse scripts, all without ever having to create a project :-)
+
+We really hope you enjoy the new Script Library experience and look forward to your feedback!
