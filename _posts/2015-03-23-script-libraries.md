@@ -165,13 +165,13 @@ Successfully updated scriptcs_packages.config.
 
 Next run the script. Any parameters after the `--` are made available in `Env.ScriptArgs` which is accessible by your scripts, Script Packs and Script Libraries. The `-loglevel info` will be used by the `Logger` Script Pack to log details at the appropriate level.
 
-![Running demo.csx on Windows](/images/2015-03-07/demo-windows.png)
+![Running demo.csx on Windows](/images/2015-03-23/demo-windows.png)
 
 As mentioned earlier, the `Calculator` class is present because we named the entry point file as `CalculatorMain.csx`. When scriptcs loads a Script Library, it will automatically put the contents into a wrapper class matching the entry point. This is also advantageous because it removes member conflicts. Two Script Libraries can have the exact same members, but they will not override one another as they are all scoped to their wrappers.
 
 If you look at the `scriptcs_packages` folder you'll notice a `ScriptLibraries.csx` file after you have run the script. 
 
-![ScriptLibraries.csx](/images/2015-03-07/ScriptLibraries.csx.png)
+![ScriptLibraries.csx](/images/2015-03-23/ScriptLibraries.csx.png)
 
 The `ScriptLibraries.csx` file is built from the Script Libraries present in the `scriptcs_packages` folder and contains the wrapped libraries. If this file is present, `scriptcs` will merge this file into the main script file and execute. See the contents below:
 
@@ -210,7 +210,7 @@ If the `scriptcs -install` option is invoked to install any new NuGet packages t
 
 Here is the same demo running on `Ubuntu 14.10`.
 
-![Running demo.csx on Ubuntu](/images/2015-03-07/demo-ubuntu.png)
+![Running demo.csx on Ubuntu](/images/2015-03-23/demo-ubuntu.png)
 
 If you are testing this demo out using mono then make sure that you have the correct certificate authorities set up. For `Ubuntu 14.10` you will have run the following: 
 
