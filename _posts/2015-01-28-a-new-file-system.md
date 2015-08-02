@@ -23,7 +23,7 @@ packages.config   ->   scriptcs_packages.config
 
 ### Automatic migration
 
-When you run scriptcs 0.13, it will detect 'legacy' file system artifacts (those shared with regular .NET) and automatically migrate them. To ensure anything outside scriptcs keeps functioning (e.g. an existing .NET solution), the existing artifacts are left in place, and copies are made instead. The only artifact which is renamed is `.cache` (to `.scriptcs_cache`) since this was never shared with regular .NET, but has still had it's named change for consistency.
+When you run scriptcs 0.13, it will detect 'legacy' file system artifacts (those shared with regular .NET) and automatically migrate them. To ensure anything outside scriptcs keeps functioning (e.g. an existing .NET solution), the existing artifacts are left in place, and copies are made instead. The only artifact which is renamed is `.cache` (to `.scriptcs_cache`) since this was never shared with regular .NET, but has still had it's name changed for consistency.
 
 E.g. if your folder looked like this *before* running scriptcs 0.13 (you may not have all of these artifacts):
 
@@ -41,7 +41,7 @@ If you don't need the original artifacts, feel free to delete them. It would be 
 
 ### Performance
 
-Another nice effect of this changed is a potential increase in performance. When scriptcs starts up, it scans `bin/` and `packages/` for modules and script packs. Previously, a large .NET solution may have many assemblies in these folders, not required for script execution, and this would result in a performance hit. With the new file system conventions, only those assemblies needed for script execution are scanned and that should speed things up in many cases.
+Another nice effect of this change is a potential increase in performance. When scriptcs starts up, it scans `bin/` and `packages/` for modules and script packs. Previously, a large .NET solution may have many assemblies in these folders, not required for script execution, and this would result in a performance hit. With the new file system conventions, only those assemblies needed for script execution are scanned and that should speed things up in many cases.
 
 ### Hosting
 
